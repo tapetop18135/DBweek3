@@ -2,9 +2,12 @@ doctype html
 html
 	head
 		title= title
-		script(src='../../script/jquery.min.js')
+		style.
+			textarea {
+			   resize: none;
+			}
 			
 	body
 		block content
-
-	script(src='../../script/admin_db.js')
+		script(src='/script/jquery.min.js')
+		script(src='/script/admin_db.js')

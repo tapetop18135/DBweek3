@@ -17,6 +17,15 @@ var DbStudents = function(){
 		console.log('connecting DB success');
 	});
 	
+	this.console = function(sql,callback){
+		connection.query(sql,function(err_query,result,field){
+			if(err_query){
+				callback(true,err_query)
+			}
+			callback(false,result);
+		})
+	}
+
 	this.showAll = function(callback){
 		var sql = 'SELECT * FROM students';
 		connection.query(sql,function(err_query,result,field){

@@ -3,12 +3,27 @@ extends admin_layout
 block content
 	h1= title
 	hr
+	//- form(id='Sqlform', action='/')
+		//- input(type='textarea',name='sql',id='sqltext',value='SELECT * FROM students')
+	h4 BASIC Instruction of MySQL
+	|   - SELECT * FROM students
+	br
+	|   - INSERT INTO `students` VALUES ('id', 'year', 'semester', 'id_sub', 'credits', 'gpa', 'score', 'name_sub')
+	br
+	br
+	textarea(name='sql',id='sql-cmd',value='SELECT * FROM students',rows=7 cols=100)
+		//- br
+	br
+	input(type='button',value='submit',id='btn-dbcmd')
+
+	hr
 	input(type='button' id='btn-show' value='SHOW DB')
-	input(type='button' id='btn-add' value='ADD to DB')
+	input(type='button' id='btn-clear' value='CLEAR BOARD')
+	hr
 	div#showDB
 
 	br
 	//- for data in student_list
-		//- div= data.id + ' ' + data.year_st + ' '+data.semester+ ' ' +data.id_sub+ ' ' +data.name_sub+ ' ' +data.credits+ ' ' +data.gpa+ ' ' +data.score
+		//- div= data.id  ' '  data.year_st  ' 'data.semester ' ' data.id_sub ' ' data.name_sub ' ' data.credits ' ' data.gpa ' ' data.score
 
 
