@@ -30,8 +30,10 @@ function Admin(){
 		})
 	}
 	this.addCSV = function(req,res){
-	 	fs.readFile('upload/test.csv','utf8',function(err,data_csv){
-	 		if(err) throw err
+		var namCSV = req.body.name
+		console.log(namCSV)
+	 	fs.readFile('upload/'+namCSV,'utf8',function(err,data_csv){
+	 		if(err) return;
 	 		var arr = CSV.parse(data_csv)
 	 		for(var i = 0 ; i < arr.length ; i+= 1){
 	 			// console.log(i+" "+);
@@ -42,10 +44,6 @@ function Admin(){
 					}
 				})   	
 	 		}
-	 	// 	dbstudent.showAll(function(err,data){
-			// 	res.send(data);
-			// })
-	 		
 	 	})
 	 	
 	    

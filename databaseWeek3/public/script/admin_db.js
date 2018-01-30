@@ -3,9 +3,11 @@
 // $(function(){
 	$('#btn-add').click(function(event){
 		event.preventDefault();
+		var data = $('#csvFile').val();
 		$.ajax({
 			type:'post',
 			url:'/admin/db/addCSV',
+			data :{name:data},
 			success: result
 		})
 	});
@@ -21,8 +23,8 @@
 		$.ajax({
 			type:'post',
 			data: {sql:data},
-			url:'/admin/db/manualCMD'
-			// success:resultCMD
+			url:'/admin/db/manualCMD',
+			success:resultCMD
 		})
 	});
 // })
