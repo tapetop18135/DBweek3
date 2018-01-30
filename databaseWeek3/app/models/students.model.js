@@ -45,24 +45,6 @@ var DbStudents = function(){
 					callback(false)
 				}
 			})
-
-		// connection.query(sql,function(err_query,result,field){
-		// 	if(err_query)throw err_query;
-		// 	for(var i = 0 ; i < result.length ; i+=1 ){
-		// 		if(result[i]['id'] == id){
-		// 			console.log('duplicate id');
-		// 			callback(true);
-		// 			return;		
-		// 		}
-		// 	}
-		// 	// sql = "INSERT INTO student VALUES('"+id+"','"+year+"','"+semester+"','"+id_sub+",'"+credits+"','"+gpa+"','"+score+"','"+name_sub+"')";?
-		// 	sql = "INSERT INTO `students` (`id`, `year_st`, `semester`, `id_sub`, `credits`, `gpa`, `score`, `name_sub`) VALUES ('"+id+"', '"+year+"', '"+semester+"', '"+id_sub+"', '"+credits+"', '"+gpa+"', '"+score+"', '"+name_sub+"');"
-		// 	connection.query(sql,function(err_insert,result_insert){
-		// 		if(err_insert) throw err_insert;
-		// 		callback(false);
-		// 	})
-
-		// })	
 	}
 	this.addStudents = function(id,year,semester,id_sub,credits,gpa,score,name_sub,callback){
 	

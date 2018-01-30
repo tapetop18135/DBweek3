@@ -1,12 +1,12 @@
 "use strict";
 
-$(function(){
-	$('#btn-show').click(function(event){
+// $(function(){
+	$('#btn-add').click(function(event){
 		event.preventDefault();
 		$.ajax({
 			type:'post',
-			url:'/admin/db/showDB',
-			success: showDatabase
+			url:'/admin/db/addCSV',
+			success: result
 		})
 	});
 
@@ -21,13 +21,15 @@ $(function(){
 		$.ajax({
 			type:'post',
 			data: {sql:data},
-			url:'/admin/db/manualCMD',
-			success:resultCMD
+			url:'/admin/db/manualCMD'
+			// success:resultCMD
 		})
 	});
-})
+// })
 
-
+var result = function(data){
+	console.log(data)
+}
 var resultCMD = function(data){
 	if(data[0] === true){
 		var string = "<div>"
@@ -49,26 +51,13 @@ var resultCMD = function(data){
 		}
 
 		string += '</div>';
+
 		$('#showDB').html(string);
 
 	}
-	// var string = '<div>'
-	// for(var i = 0 ; i < data.length ; i+= 1){
-	// 	for(var key in data[i]){
-	// 		string += data[i][key]+" "
-	// 	} 
-	// 	string += "<br>"
-	// }
-
-	// string += '</div>';
-	// $('#showDB').html(string);
-
 }
-
-
-
-
 var showDatabase =  function(data){
+		// console.log(data);
 		var string = '<div>'
 		for(var i = 0 ; i < data.length ; i+= 1){
 			for(var key in data[i]){
@@ -76,8 +65,21 @@ var showDatabase =  function(data){
 			} 
 			string += "<br>"
 		}
-
+		// console.log(data.length);
 		string += '</div>';
+		$('#rows-count').html(data.length);
 		$('#showDB').html(string);
 
 	}
+var i = 0
+var realtime = function(){
+	
+	i+=1;
+	$.ajax({
+			type:'post',
+			url:'/admin/db/showDB',
+			success: showDatabase
+		})
+
+}
+setInterval('realtime()',500);

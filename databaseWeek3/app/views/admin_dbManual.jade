@@ -11,15 +11,17 @@ block content
 	|   - INSERT INTO `students` VALUES ('id', 'year', 'semester', 'id_sub', 'credits', 'gpa', 'score', 'name_sub')
 	br
 	br
-	textarea(name='sql',id='sql-cmd',value='SELECT * FROM students',rows=7 cols=100)
+	textarea(name='sql',id='sql-cmd',value='SELECT * FROM students',rows=4 cols=100)
 		//- br
 	br
 	input(type='button',value='submit',id='btn-dbcmd')
 
 	hr
-	input(type='button' id='btn-show' value='SHOW DB')
-	input(type='button' id='btn-clear' value='CLEAR BOARD')
+	input(type='button' id='btn-add' value='Add CSV')
+	//- input(type='button' id='btn-clear' value='CLEAR BOARD')
 	hr
+	p Have rows :
+		span#rows-count
 	div#showDB
 
 	br

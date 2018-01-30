@@ -42,9 +42,9 @@ function Admin(){
 					}
 				})   	
 	 		}
-	 		dbstudent.showAll(function(err,data){
-				res.send(data);
-			})
+	 	// 	dbstudent.showAll(function(err,data){
+			// 	res.send(data);
+			// })
 	 		
 	 	})
 	 	
